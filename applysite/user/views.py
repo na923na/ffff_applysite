@@ -5,9 +5,13 @@ from .models import CustomUser
 def sign_up(request):
     if request.method =='POST':
         username = request.POST['username']
+        major = request.POST['major']
+        class_code = request.POST['class_code']
         email = request.POST['email']
+        phone_number = request.POST['phone_number']
         pwd = request.POST['password']
         c_pwd = request.POST['check_password']
+
 
         if CustomUser.objects.filter(email=email).distinct():
             return render(request, 'user/signUp.html', {'err' : '중복 아이디가 존재합니다.'})
