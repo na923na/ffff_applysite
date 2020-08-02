@@ -7,10 +7,15 @@ class Question(models.Model) :
     author = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     title = models.CharField(max_length=40)
     question = models.TextField()
-    answer  = models.TextField()
     question_time = models.DateTimeField(default=timezone.now)
-    answer_time = models.DateTimeField(default=timezone.now)
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) :
         return self.title
+
+class Answer(models.Model) :
+    answer  = models.TextField()
+    answer_time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self) :
+        return self.answer
