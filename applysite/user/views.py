@@ -5,6 +5,8 @@ from .models import CustomUser
 def sign_up(request):
     if request.method =='POST':
         username = request.POST['username']
+        major = request.POST['major']
+        phone_number = request.POST['phone_number']
         email = request.POST['email']
         pwd = request.POST['password']
         c_pwd = request.POST['check_password']
@@ -19,7 +21,7 @@ def sign_up(request):
             )
         customUser.set_password(pwd)
         customUser.save()
-        return redirect('home')
+        return render(request, 'user/login.html') #return redirect('home')
     else:
         return render(request, 'user/signUp.html')
 
