@@ -1,0 +1,19 @@
+<section class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>{{question.title}}</h1>
+            <h6>{{question.author.username}}</h6>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            
+            <p class="card-text">{{question.content}}</p>
+            <a href="{% url 'pre_update' question.pk %}" class="card-link">수정하기</a>
+            <a href="{% url 'board_delete' question.pk %}" class="card-link">삭제하기</a>
+        </div>
+    </div>
+
+
+    
+</section>
