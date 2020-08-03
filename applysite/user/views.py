@@ -6,7 +6,7 @@ def sign_up(request):
     if request.method =='POST':
         username = request.POST['username']
         major = request.POST['major']
-        class_code = request.POST['class_code']
+        phone_number = request.POST['phone_number']
         email = request.POST['email']
         phone_number = request.POST['phone_number']
         pwd = request.POST['password']
@@ -14,18 +14,18 @@ def sign_up(request):
 
 
         if CustomUser.objects.filter(email=email).distinct():
-            return render(request, 'user/signUp.html', {'err' : '중복 아이디가 존재합니다.'})
+            return render(request, 'user/signup.html', {'err' : '중복 아이디가 존재합니다.'})
             if pwd != c_pwd:
-                return render(request, 'user/signUp.html', {'err' : '암호는 서로 일치해야 합니다.'})
+                return render(request, 'user/signup.html', {'err' : '암호는 서로 일치해야 합니다.'})
         customUser = CustomUser(
             username = username,
             email = email,
             )
         customUser.set_password(pwd)
         customUser.save()
-        return redirect('home')
+        return render(request, 'user/login.html') #return redirect('home')
     else:
-        return render(request, 'user/signUp.html')
+        return render(request, 'user/signup.html')
 
 def login(request):
     if request.method == "POST" :
