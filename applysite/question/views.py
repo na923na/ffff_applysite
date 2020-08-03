@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Question, Answer
 from user.models import CustomUser
 
+
 def question_read(request): #(최종인)
     questions = Question.objects.all() #question에 있는 객체들을 다 불러온다
     context = {'question' : questions } # ''안에있는건 내가 정의한거: question's' 인이유는 read에서 모든 게시물들을 보니깐 
@@ -14,26 +15,6 @@ def question_read_one(request, pk): #(최종인)
     
     return render(request, 'question/read_one.html', context) 
 
-def question_answer(request, pk):
-    if request.method == 'POST' and request.session.get('user', False): #로그인해야 기능 이용 가능 
-        title = request.POST['title']
-        author = get_object_or_404(CustomUser, username = request.session['user'])
-        content = request.POST['content']
-        
-
-        answer = Answer(
-            author = author,
-            title = title,
-            content = content,
-            
-
-        )
-
-        answer.save()
-
-        return redirect('question_read')
-    else: 
-        return render(request, 'question/answer.html')
     
 
 def update(request):
@@ -59,6 +40,7 @@ def question_create(request): #read를 구현시키기 위해 임의로 create �
 
         return redirect('question_read')
     else:
-        return render(request, 'question/create.html')   
+        return render(request, 'question/create.html')
+
 
      
