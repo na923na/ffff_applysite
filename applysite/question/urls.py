@@ -17,5 +17,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('update/', views.update, name="update"),
+     path('update/<int:pk>', views.question_update, name='question_update'),#선주
+     path('delete/<int:pk>', views.question_delete, name='question_delete'),#선주
 ]

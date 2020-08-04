@@ -14,8 +14,12 @@ class Question(models.Model) :
         return self.title
 
 class Answer(models.Model) :
+    author = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    question = models.ForeignKey(Question, on_delete = models.CASCADE) #종인
     answer  = models.TextField()
     answer_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self) :
         return self.answer
+
+    
