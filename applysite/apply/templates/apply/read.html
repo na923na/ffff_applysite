@@ -24,7 +24,7 @@
             {% for apply in applys %}
           <tr>
             <th scope="row">{{apply.pk}}</th>
-            <td>{{ apply.user.username }}</td>
+            <td><a href="{% url 'apply_read_one' apply.pk %}">{{ apply.user.username }}</a></td>
             <td>{{ apply.user.major }}</td>
             <td>{{ apply.user.class_code }}</td>
             <td>{{ apply.create_at }}</td>

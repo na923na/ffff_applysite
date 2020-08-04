@@ -27,3 +27,7 @@ def apply_read(request) :
     context = {'applys': applys}
     return render(request,'apply/read.html',context)
 
+def apply_read_one(request, pk) :
+    apply = get_object_or_404(ApplyInformation, pk = pk)
+    context = { 'apply': apply }
+    return render(request, 'apply/read_one.html',context)
