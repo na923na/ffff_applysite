@@ -19,21 +19,31 @@
     background-color: rgb(26, 25, 25);
 }
 
-.fixed-bottom {
+.top {
     width: 100%;
-    height: 200px;
+    height: 150px;
+    background-color: rgb(26, 25, 25);
+    padding: 10px;
+    margin: 0 auto;
+    
+}
+
+.content {
+    width: 100%;
+    height: 800px;
+    overflow: auto;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.bottom {
+    width: 100%;
+    height: 150px;
     background-color: rgb(26, 25, 25);
     padding: 20px;
     text-align: center;
     margin: 0 auto;
-}
-
-.fixed-top {
-    width: 100%;
-    height: 200px;
-    background-color: rgb(26, 25, 25);
-    padding: 10px;
-    margin: 0 auto;
+    position: relative;
 }
 
 .signinup {
