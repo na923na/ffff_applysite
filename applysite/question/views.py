@@ -16,6 +16,8 @@ def question_update(request, pk): #선주가 한 거 ^o^!
         qna = get_object_or_404(Question, pk=pk)
         context = {"qna" : qna}
         return render(request, 'question/update.html', context)
+def update(request):
+    return render(request, 'question/update/html')
 
 def question_delete(request, pk): #선주
     qna = Question.objects.get(pk=pk)
@@ -35,12 +37,6 @@ def question_read_one(request, pk): #(최종인)
     
     return render(request, 'question/read_one.html', context) 
 
-    
-
-def update(request):
-    return render(request, 'question/update.html')
-
-
 def question_create(request): #read를 구현시키기 위해 임의로 create 설정함/나중에 선주누나방식으로 채워짐. (최종인)
     if request.method == 'POST' or request.session.get('user', False): 
         title = request.POST['title']
@@ -55,12 +51,8 @@ def question_create(request): #read를 구현시키기 위해 임의로 create �
             
 
         )
-
         question.save()
 
         return redirect('question_read')
     else:
         return render(request, 'question/create.html')
-
-
-     
