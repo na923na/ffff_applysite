@@ -24,20 +24,13 @@
             {% for apply in applys %}
           <tr>
             <th scope="row">{{apply.pk}}</th>
-            <td>{{ apply.author.username }}</td>
-            <td><a href="{% url 'apply_read_one' apply.pk %}">{{ apply.username }}</a></td>
-            <td>{{ apply.major }}</td>
-            <td> {{class_code}} </td>
-            <td> {{board.create_at}} </td>
-            <!-- <td><a href="{% url 'board_update' board.pk %}" class ="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a href="{% url 'board_delete' board.pk %}" class ="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td> -->
+            <td>{{ apply.user.username }}</td>
+            <td>{{ apply.user.major }}</td>
+            <td>{{ apply.user.class_code }}</td>
+            <td>{{ apply.create_at }}</td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      <a href="{% url 'apply_create' %}" class ="btn btn-outline-success my-2 my-sm-0" type="submit" >Create</a>
-      {% endfor %}
     </body>
 </html>

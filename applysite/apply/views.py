@@ -5,17 +5,17 @@ from user.models import CustomUser
 def apply_create(request) :
     if request.method == 'POST' and request.session.get('user', False) :
         reason = request.POST['reason']
-        author = get_object_or_404(CustomUser, username=request.session['user'])
+        user = get_object_or_404(CustomUser, username=request.session['user'])
         makeweb = request.POST['makeweb']
         solution = request.POST['solution']
         gain = request.POST['gain']
 
         apply = ApplyInformation(
-            author = author,
             reason = reason,
             makeweb = makeweb,
-            soultion = solution,
-            gain = gain
+            solution = solution,
+            gain = gain,
+            user = user
             )
         apply.save()
         return redirect('apply_read')
