@@ -12,6 +12,7 @@ def sign_up(request):
         pwd = request.POST['password']
         c_pwd = request.POST['check_password']
 
+
         if CustomUser.objects.filter(email=email).distinct():
             return render(request, 'user/sign_up.html', {'err' : '중복 아이디가 존재합니다.'})
             if pwd != c_pwd:
