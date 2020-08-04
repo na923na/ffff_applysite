@@ -55,7 +55,6 @@ def question_create(request): #read를 구현시키기 위해 임의로 create �
             
 
         )
-
         question.save()
 
         return redirect('question_read')

@@ -1,6 +1,6 @@
-<!--{% extends 'layout/layout.html' %}
-{% block content %}-->
-  <section class = "container">
+{% extends 'layout/layout.html' %}
+{% block content %}
+  
     <form action="{% url 'question_create' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
@@ -11,9 +11,9 @@
 
     <div class="form-group">
       <label for="contentInput">Content</label>
-      <textarea class="form-control" id="contentInput" name="content" rows="5"></textarea>
+      <textarea class="form-control" id="contentInput" name="content" rows="10"></textarea>
     </div>
     <button type="submit" class="btn btn-secondary">Submit</button>
   </form>
-  </section>
-<!--{% endblock %}-->
+
+  {% endblock %}
