@@ -16,6 +16,8 @@ def question_update(request, pk): #선주가 한 거 ^o^!
         qna = get_object_or_404(Question, pk=pk)
         context = {"qna" : qna}
         return render(request, 'question/update.html', context)
+def update(request):
+    return render(request, 'question/update/html')
 
 def question_delete(request, pk): #선주
     qna = Question.objects.get(pk=pk)
@@ -46,7 +48,6 @@ def question_create(request):
             title = title,
             content = content,            
         )
-
         question.save()
 
         return redirect('question_read')

@@ -15,7 +15,11 @@
             <a href="{% url 'pre_update' question.pk %}" class="card-link">수정하기</a>
             <a href="{% url 'question_delete' question.pk %}" class="card-link">삭제하기</a>
 
+<<<<<<< HEAD
             
+=======
+            <a href="{% url 'question_answer' question.pk %}" class="card-link">답글달기</a>
+>>>>>>> 86b893dfa17224142828421ff5002edec26067fe
         </div>
 
 
@@ -27,4 +31,4 @@
     
     
 </section>
-<!--{% endblock %}-->
+{% endblock %}

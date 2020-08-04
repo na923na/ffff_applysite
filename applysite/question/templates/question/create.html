@@ -3,6 +3,7 @@
   <section class = "container">
     <form action="{% url 'question_create' %}" method="POST">
         {% csrf_token %}
+      
         <div class="form-group">
           <label for="exampleInputEmail1">Title</label>
           <input type="text" class="form-control" id="TitleInput" name="title" >
@@ -11,9 +12,13 @@
 
     <div class="form-group">
       <label for="contentInput">Content</label>
-      <textarea class="form-control" id="contentInput" name="content" rows="5"></textarea>
+      <textarea class="form-control" id="contentInput" name="content" rows="20"></textarea>
     </div>
     <button type="submit" class="btn btn-secondary">Submit</button>
   </form>
   </section>
+<<<<<<< HEAD
 {% endblock %}
+=======
+  {% endblock %}
+>>>>>>> 86b893dfa17224142828421ff5002edec26067fe
