@@ -35,6 +35,28 @@ def question_read_one(request, pk): #(최종인)
     
     return render(request, 'question/read_one.html', context) 
 
+def question_create(request):
+    if request.method == 'POST' and request.session.get('user', False): #로그인해야 기능 이용 가능 
+        title = request.POST['title']
+        author = get_object_or_404(CustomUser, username = request.session['user'])
+        content = request.POST['content']
+        
+        question = Question(
+            author = author,
+            title = title,
+            content = content,            
+        )
+
+        question.save()
+
+        return redirect('question_read')
+    else:
+        return render(request, 'question/create.html') 
+
+def pre_update(request, pk):
+    question = Question.objects.get(pk=pk)
+    context = {'question':question}
+    return render(request, "question/update.html", context)
     
 
 
