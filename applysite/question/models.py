@@ -15,11 +15,7 @@ class Question(models.Model) :
 
 class Answer(models.Model) :
     author = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
-<<<<<<< HEAD
     question = models.ForeignKey(Question, on_delete = models.CASCADE) #각 질문에 맞는 답을 해야하기 때문에 추가함 (최종인)
-=======
-    question = models.ForeignKey(Question, on_delete = models.CASCADE) #종인
->>>>>>> 86b893dfa17224142828421ff5002edec26067fe
     answer  = models.TextField()
     answer_time = models.DateTimeField(default=timezone.now)
     
