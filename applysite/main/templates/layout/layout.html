@@ -20,11 +20,13 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 </head>
-<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+<link rel="stylesheet" href="{% static 'css/layout.css' %}?after">
 </head>
 
 <body>
+  <div class="all">
   {% block navbar %}
+  
   <div class="top">
 
     <h5 class="text-white h3">Likelion 8th</h5>
@@ -45,11 +47,44 @@
   {% endblock %}
   {% block content %}
   
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Example select</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Example multiple select</label>
+      <select multiple class="form-control" id="exampleFormControlSelect2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+  </form>
 
-  
   {% endblock %}
-  {% block footer %}
-  <div class="bottom">
+
+</div>  
+</body>
+{% block footer %}
+
+<footer class="bottom">
     <nav class="nav">
       <div class="icon">
         <a class="nav-link" href="https://www.facebook.com/likelionKGU/"><span style="color:blue"><i
@@ -60,8 +95,8 @@
       </div>
     </nav>
     <p style="color: white; font-size: larger;">© Untitled. All rights reserved. </p>
-  </div>
-  {% endblock %}
-</body>
+</footer>
+{% endblock %}
+
 
 </html>
