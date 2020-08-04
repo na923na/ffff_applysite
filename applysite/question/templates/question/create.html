@@ -5,6 +5,7 @@
         {% csrf_token %}
       
         <div class="form-group">
+            <h1>Q&A</h1>
           <label for="exampleInputEmail1">Title</label>
           <input type="text" class="form-control" id="TitleInput" name="title" >
           
@@ -12,7 +13,7 @@
 
     <div class="form-group">
       <label for="contentInput">Content</label>
-      <textarea class="form-control" id="contentInput" name="content" rows="20"></textarea>
+      <textarea class="form-control" id="contentInput" name="content" rows="15"></textarea>
     </div>
     <button type="submit" class="btn btn-secondary">Submit</button>
   </form>
