@@ -21,26 +21,10 @@ def update(request):
     return render(request, 'question/update.html')
 
 
-def question_create(request): #read를 구현시키기 위해 임의로 create 설정함/나중에 선주누나방식으로 채워짐. (최종인)
-    if request.method == 'POST' or request.session.get('user', False): 
-        title = request.POST['title']
-        author = get_object_or_404(CustomUser, username = request.session['user'])
-        content = request.POST['content']
-        
 
-        question = Question(
-            author = author,
-            title = title,
-            content = content,
-            
 
-        )
 
-        question.save()
 
-        return redirect('question_read')
-    else:
-        return render(request, 'question/create.html')
 
 
      
