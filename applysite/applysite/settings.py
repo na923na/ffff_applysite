@@ -37,9 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'question.apps.QuestionConfig',
     'user.apps.UserConfig',
-    'main.apps.MainConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,13 +120,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-<<<<<<< HEAD
 AUTH_USER_MODEL = 'user.CustomUser'
-=======
-AUTH_USER_MODEL = 'user.CustomUser'
-
-STATICFILES_DIR = (
-    os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "statics")
-)
->>>>>>> c50fb97cc104ea2ec22b1ff0e6593d1a9c36d8ef
