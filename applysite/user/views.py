@@ -26,7 +26,7 @@ def sign_up(request):
             )
         customUser.set_password(pwd)
         customUser.save()
-        return render(request, 'user/login.html') #return redirect('home')
+        return render(request, 'user/login.html') #임시로 로그인 페이지로 이동 return redirect('home')
     else:
         return render(request, 'user/sign_up.html')
 
@@ -38,7 +38,7 @@ def login(request):
         user = get_object_or_404(CustomUser, email= email)
         if check_password(pwd, user.password):
             request.session['user'] = user.username
-            return redirect('home')
+            return render(request, 'user/login.html')  #임시로 로그인 페이지로 이동 return redirect('home')
         else:
             return render(request, 'user/login.html', {'err' : '비밀번호가 틀렸습니다...'})
     
