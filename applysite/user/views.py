@@ -4,11 +4,12 @@ from .models import CustomUser
 
 def sign_up(request):
     if request.method =='POST':
-        username = request.POST['username']
+        nickname = request.POST['nickname']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         class_code = request.POST['class_code']
         major = request.POST['major']
         phone_number = request.POST['phone_number']
-        email = request.POST['email']
         pwd = request.POST['password']
         c_pwd = request.POST['check_password']
         #manager = request.POST['manager'] 관리자 로그인 
@@ -16,14 +17,15 @@ def sign_up(request):
         #if manager == 'likelion':
         #    manager_ok=True
 
-        if CustomUser.objects.filter(email=email).distinct():
-            return render(request, 'user/sign_up.html', {'err' : '중복 아이디가 존재합니다.'})
+        if CustomUser.objects.filter(username=nickname).distinct():
+            return render(request, 'user/sign_up.html', {'err1' : '중복 아이디가 존재합니다.'})
         if pwd != c_pwd:
-             return render(request, 'user/sign_up.html', {'err' : '암호는 서로 일치해야 합니다.'})
+             return render(request, 'user/sign_up.html', {'err2' : '암호는 서로 일치해야 합니다.'})
 
         customUser = CustomUser(
-            username = username,
-            email = email,
+            username = nickname,
+            first_name = first_name,
+            last_name = last_name,
             major = major,
             phone_number = phone_number,
             class_code = class_code,
@@ -37,10 +39,10 @@ def sign_up(request):
 
 def login(request):
     if request.method == "POST" :
-        email = request.POST['email']
+        nickname = request.POST['nickname']
         pwd = request.POST['password']
 
-        user = get_object_or_404(CustomUser, email= email)
+        user = get_object_or_404(CustomUser, username = nickname)
         if check_password(pwd, user.password):
             request.session['user'] = user.username
             return render(request, 'user/login.html')  #임시로 로그인 페이지로 이동 return redirect('home')

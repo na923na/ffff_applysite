@@ -13,9 +13,20 @@
     <section class="container">
         <form action="" method="POST">
             {% csrf_token %}
-            <div class="form-group">   <!--style="color: blue;"-->
-                <label for="username">User name</label>
-                <input name="username" type="text" class="form-control" id="username">
+            <div class="form-group">
+                <label for="nickname">ID</label>
+                <input name="nickname" type="text" class="form-control" id="nickname">
+            </div>
+        {% if err1 %}
+            <small class="form-text text-muted">{{err1}}</small>
+        {% endif %}
+            <div class="form-group">
+                <label for="first_name">First name</label>
+                <input name="first_name" type="text" class="form-control" id="fisrt_name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last name</label>
+                <input name="last_name" type="text" class="form-control" id="last_name">
             </div>
             <div class="form-group">
                 <label for="class_code">class code</label>
@@ -30,11 +41,6 @@
                 <input name="phone_number" type="text" class="form-control" id="phone_number">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">로그인 시 이메일이 사용됩니다.</small>
-            </div>
-            <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input name="password" type="password" class="form-control" id="exampleInputPassword1">
             </div>
@@ -42,6 +48,9 @@
                 <label for="checkPassword">Confirm Password</label>
                 <input name="check_password" type="password" class="form-control" id="checkPassword" aria-describedby="emailHelp">
             </div>
+            {% if err2 %}
+                <small class="form-text text-muted">{{err2}}</small>
+            {% endif %}
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </section>
