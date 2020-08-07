@@ -18,14 +18,17 @@ def apply_create(request) :
             user = user
             )
         apply.save()
-        return redirect('apply_read')
+        return redirect('apply_create')
     else:
         return render(request, 'apply/create.html')
 
 def apply_read(request) :
-    applys = ApplyInformation.objects.all()
-    context = {'applys': applys}
-    return render(request,'apply/read.html',context)
+    if request.session.get('manager_ok', False):
+        applys = ApplyInformation.objects.all()
+        context = {'applys': applys}
+        return render(request,'apply/read.html',context)
+    else:
+        return redirect(apply_create)
 
 def apply_read_one(request, pk) :
     apply = get_object_or_404(ApplyInformation, pk = pk)
