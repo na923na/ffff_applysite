@@ -54,3 +54,8 @@ def manager_delete(request, pk):
     manager.delete()
     return redirect('manager_read')      
 
+def manager_home(request):
+    return render(request, 'manager/manager_home.html')
+
+
+

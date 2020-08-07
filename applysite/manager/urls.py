@@ -23,6 +23,7 @@ urlpatterns = [
     path('manager_read/<int:pk>', views.manager_read_one, name="manager_read_one"), 
     path('manager_create/', views.manager_create, name="manager_create"),
     path('manager_pre_update/<int:pk>', views.manager_pre_update, name='manager_pre_update'),
+    path('manager_home', views.manager_home, name="manager_home"),
 
 ]
 
