@@ -27,7 +27,7 @@ def sign_up(request):
             )
         customUser.set_password(pwd)
         customUser.save()
-        return render(request, 'user/login.html') #return redirect('home')
+        return redirect('login') 
     else:
         return render(request, 'user/sign_up.html')
 
@@ -46,6 +46,7 @@ def login(request):
     else:
         return render(request, 'user/login.html')
 
+<<<<<<< HEAD
 def logout(request):
     if request.session.get('user', False) :
         request.session.modified = True
@@ -54,6 +55,8 @@ def logout(request):
     else:
         return redirect("home")
         
+=======
+>>>>>>> dc70a2583defd9a91d9107f90371e04378ef7d23
 def manager_login(request): #선주
     if request.method == "POST":
         email =ruequest.POST['email']
@@ -63,7 +66,11 @@ def manager_login(request): #선주
             request.session['is_manager'] = is_manager.username
             return render(request, 'manager/manager.html')
         else:
+<<<<<<< HEAD
             return render(request, 'user/manager_login.html') #아직 홈 없어서 임시로 로그인 페이지로 넘어가게 해뒀습니당 -선주
+=======
+            return render(request, 'user/login.html') #아직 홈 없어서 임시로 로그인 페이지로 넘어가게 해뒀습니당 -선주
+>>>>>>> dc70a2583defd9a91d9107f90371e04378ef7d23
             
            
             if is_manager.is_staff : #is_staff 함수 사용
@@ -78,6 +85,7 @@ def manager_logout(request): #선주
         del request.session['is_manager']
         return redirect("login") #임시
     else:
+<<<<<<< HEAD
         return redirect("login") #임시
 
 
@@ -116,3 +124,6 @@ def manager_logout(request):
         else:
             return render(request, 'user/login.html') #아직 홈 없어서 임시로 로그인 페이지로 넘어가게 해뒀습니당 -선주'''
 
+=======
+        return redirect("login") #임시
+>>>>>>> dc70a2583defd9a91d9107f90371e04378ef7d23
