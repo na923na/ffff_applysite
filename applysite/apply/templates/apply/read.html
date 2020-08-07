@@ -32,8 +32,7 @@
             <td>{{apply.create_at}}</td>
             <td><a href="{% url 'apply_update' apply.pk %}" class ="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a href="{% url 'apply_delete' apply.pk %}" class ="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td>
           </tr>
-          {% endfor %}
-          
+          {% endfor %}      
         </tbody>
       </table>
     
