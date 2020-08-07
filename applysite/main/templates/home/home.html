@@ -1,4 +1,5 @@
 {% extends 'layout/layout.html' %}
+{% load static %}
 {% block content %}
 
         <section class="container">
@@ -13,10 +14,10 @@
                         <img src="{% static 'image/lion.jpeg' %}" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{% static 'image/lion1.jpeg' %}" class="d-block w-100" alt="...">
+                        <img src="{% static 'image/lion2.jpeg' %}" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{% static 'image/lion2.jpeg' %}" class="d-block w-100" alt="...">
+                        <img src="{% static 'image/lion3.jpeg' %}" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -30,5 +31,5 @@
             </div>
         </section>
 
-        {% endblock %}
+{% endblock %}
 
