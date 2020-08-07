@@ -33,8 +33,12 @@
     <h6 style="color: grey;">멋쟁이 사자처럼 at 경기대학교</h6>
     <br>
     <div class="signinup">
-      <a class="nav-link active" href="#">LOGIN</a>
-      <a class="nav-link" href="#">SIGN UP</a>
+      <!--{% if request.session.user %}
+      <a class="nav-link" href="#">LOGOUT</a>-->
+      <!--{% else %}-->
+      <a class="nav-link active" href="{% url 'login' %}">LOGIN</a>
+      <a class="nav-link" href="{% url 'sign_up' %}">SIGN UP</a>
+      <!--{% endif %}-->
     </div>
     <nav class="nav">
       <a class="nav-link active" href="#">HOME</a>
