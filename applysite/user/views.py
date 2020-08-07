@@ -18,8 +18,8 @@ def sign_up(request):
 
         if CustomUser.objects.filter(email=email).distinct():
             return render(request, 'user/sign_up.html', {'err' : '중복 아이디가 존재합니다.'})
-            if pwd != c_pwd:
-                return render(request, 'user/sign_up.html', {'err' : '암호는 서로 일치해야 합니다.'})
+        if pwd != c_pwd:
+             return render(request, 'user/sign_up.html', {'err' : '암호는 서로 일치해야 합니다.'})
 
         customUser = CustomUser(
             username = username,

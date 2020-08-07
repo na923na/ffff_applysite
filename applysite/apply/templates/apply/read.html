@@ -29,7 +29,8 @@
             <td><a href="{% url 'apply_read_one' apply.pk %}" class="username">{{apply.user.username}}</a></td>
             <td>{{apply.user.major}}</td> 
             <td>{{apply.user.class_code}}</td>  
-            <td>{{apply.create_at}}</td> 
+            <td>{{apply.create_at}}</td>
+            <td><a href="{% url 'apply_update' apply.pk %}" class ="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a href="{% url 'apply_delete' apply.pk %}" class ="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td>
           </tr>
           {% endfor %}
           

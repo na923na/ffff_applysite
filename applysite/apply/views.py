@@ -38,3 +38,28 @@ def apply_read_one(request, pk) :
     apply = get_object_or_404(ApplyInformation, pk = pk)
     context = { 'apply': apply }
     return render(request, 'apply/read_one.html',context)
+
+def apply_update(request,pk):
+    if  request.method == 'POST':
+        reason = request.POST['reason']
+        makeweb = request.POST['makeweb']
+        solution = request.POST['solution']
+        gain = request.POST['gain']
+
+        apply = ApplyInformation.objects.get(pk=pk)
+
+        apply.reason = reason
+        apply.makeweb = makeweb
+        apply.solution = solution
+        apply.gain = gain
+        apply.save()
+        return redirect('apply_read')
+    else:
+        apply = get_object_or_404(ApplyInformation, pk = pk)
+        context = {"apply" : apply}
+        return render(request, 'apply/update.html', context)
+
+def apply_delete(request,pk):
+    apply = ApplyInformation.objects.get(pk=pk)
+    apply.delete()
+    return redirect('apply_read')
