@@ -11,10 +11,10 @@ def sign_up(request):
         email = request.POST['email']
         pwd = request.POST['password']
         c_pwd = request.POST['check_password']
-        manager = request.POST['manager']
-        manager_ok = False
-        if manager == 'likelion':
-            manager_ok=True
+        #manager = request.POST['manager'] 관리자 로그인 
+        #manager_ok = False
+        #if manager == 'likelion':
+        #    manager_ok=True
 
         if CustomUser.objects.filter(email=email).distinct():
             return render(request, 'user/sign_up.html', {'err' : '중복 아이디가 존재합니다.'})
@@ -27,11 +27,11 @@ def sign_up(request):
             major = major,
             phone_number = phone_number,
             class_code = class_code,
-            manager_ok = manager_ok
+            #manager_ok = manager_ok
             )
         customUser.set_password(pwd)
         customUser.save()
-        return render(request, 'user/login.html') #임시로 로그인 페이지로 이동 return redirect('home')
+        return redirect ('login')
     else:
         return render(request, 'user/sign_up.html')
 

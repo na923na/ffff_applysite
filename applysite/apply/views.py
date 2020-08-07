@@ -23,12 +23,16 @@ def apply_create(request) :
         return render(request, 'apply/create.html')
 
 def apply_read(request) :
-    if request.session.get('manager_ok', False):
-        applys = ApplyInformation.objects.all()
-        context = {'applys': applys}
-        return render(request,'apply/read.html',context)
-    else:
-        return redirect(apply_create)
+    applys = ApplyInformation.objects.all()
+    context = {'applys': applys}
+    return render(request,'apply/read.html',context)
+
+    # if request.session.get('manager_ok', False):    관리자 로그인 기능 주석처리,,ㅎㅎ
+    #    applys = ApplyInformation.objects.all()
+    #    context = {'applys': applys}
+    #    return render(request,'apply/read.html',context)
+    # else:
+    #    return redirect(apply_create)
 
 def apply_read_one(request, pk) :
     apply = get_object_or_404(ApplyInformation, pk = pk)
