@@ -18,10 +18,7 @@ from . import views
 
 urlpatterns = [
     path('layout/', views.layout, name="layout"),
-<<<<<<< HEAD
-=======
     path('about/', views.about, name="about"),
     path('home/', views.home, name="home"),
->>>>>>> d1add5aa13f67e5246afdc01f2a9f5dcaea2ab13
 
 ]
