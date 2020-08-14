@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Question
+from question.models import Question
+from manager.models import Manager
 from user.models import CustomUser
 
 def question_update(request, pk): #선주가 한 거 ^o^! 
@@ -36,6 +37,12 @@ def question_read_one(request, pk): #(최종인)
     
     
     return render(request, 'question/read_one.html', context) 
+def question_viewanswer(request, pk): #종인/질문+답변 동시 확인/미완성 
+    question = get_object_or_404(Question, pk = pk)
+    manager = get_object_or_404(Manager, pk = pk)
+    context = {'question' : question, 'manager' : manager}
+
+    return render(request, 'question/viewanswer.html', context)
 
 def question_create(request):
     if request.method == 'POST' and request.session.get('user', False): #로그인해야 기능 이용 가능 
