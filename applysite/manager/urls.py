@@ -17,11 +17,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('layout/', views.layout, name="layout"),
-<<<<<<< HEAD
-=======
-    path('about/', views.about, name="about"),
-    path('home/', views.home, name="home"),
->>>>>>> d1add5aa13f67e5246afdc01f2a9f5dcaea2ab13
+    path('manager_update/<int:pk>', views.manager_update, name='manager_update'),
+    path('manager_delete/<int:pk>', views.manager_delete, name='manager_delete'),
+    path('manager_read/', views.manager_read, name="manager_read"), 
+    path('manager_read/<int:pk>', views.manager_read_one, name="manager_read_one"), 
+    path('manager_create/', views.manager_create, name="manager_create"),
+    path('manager_pre_update/<int:pk>', views.manager_pre_update, name='manager_pre_update'),
+    path('manager_home', views.manager_home, name="manager_home"),
 
 ]
+
+

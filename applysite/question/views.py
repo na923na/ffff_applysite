@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Question, Answer
+from .models import Question
 from user.models import CustomUser
 
 def question_update(request, pk): #선주가 한 거 ^o^! 
@@ -58,6 +58,8 @@ def pre_update(request, pk):
     question = Question.objects.get(pk=pk)
     context = {'question':question}
     return render(request, "question/update.html", context)
+
+
     
 
 

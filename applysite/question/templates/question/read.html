@@ -14,9 +14,19 @@
 
           </tr>
         </thead>
-        <tbody>
         
-        </tbody>
+          <tbody>
+            {% for question in questions %}
+              <tr>
+                <th scope="row">{{question.pk}}</th>
+                <td>{{question.author.username}}</td>
+                <td><a href = "{% url 'question_read_one' board.pk %}" class = "title">{{question.title}}</a></td>
+                
+                <td>{{question.question_time}}</td>
+              </tr>
+            {% endfor%}
+          </tbody>
+        
       </table>
       
     </div>
