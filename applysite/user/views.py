@@ -34,11 +34,7 @@ def sign_up(request):
             )
         customUser.set_password(pwd)
         customUser.save()
-<<<<<<< HEAD
         return redirect('login') 
-=======
-        return redirect ('login')
->>>>>>> 252183570453c5a708ae5bf429510c4dca6171cf
     else:
         return render(request, 'user/sign_up.html')
 
