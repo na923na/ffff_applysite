@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Question, Manager
+from question.models import Question
+from manager.models import Manager
 from user.models import CustomUser
 
 def question_update(request, pk): #선주가 한 거 ^o^! 
