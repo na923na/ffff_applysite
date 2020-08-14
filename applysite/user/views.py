@@ -56,7 +56,7 @@ def logout(request):
         
 def manager_login(request): #선주
     if request.method == "POST":
-        email =ruequest.POST['email']
+        email = request.POST['email']
         pwd = request.POST['password']
         is_manager = get_object_or_404(CustomUser, email=email)
         if check_password(pwd, is_manager.password):
@@ -70,7 +70,7 @@ def manager_login(request): #선주
                 request.session['is_manager'] = True #로그인 된다면
                 return render(request, 'manager/manager.html')
             else: #로그인 안 될 시
-                return render(request, 'user.login.html')                    
+                return render(request, 'user/login.html')                    
 
 def manager_logout(request): #선주 
     if request.session.get('is_manager', False):
