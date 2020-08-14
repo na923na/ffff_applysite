@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'question.apps.QuestionConfig',
     'main.apps.MainConfig',
     'user.apps.UserConfig',
+<<<<<<< HEAD
     'manager.apps.ManagerConfig',
+=======
+    'apply.apps.ApplyConfig',
+>>>>>>> 252183570453c5a708ae5bf429510c4dca6171cf
 ]
 
 MIDDLEWARE = [
