@@ -7,5 +7,6 @@ urlpatterns = [
     path('question/', include('question.urls')),
     path('manager/', include('manager.urls')),
     path('main/', include('main.urls')),
-    
+    path('apply/', include('apply.urls')),
+
 ]

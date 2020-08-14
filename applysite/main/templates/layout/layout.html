@@ -33,12 +33,12 @@
     <h6 style="color: grey;">멋쟁이 사자처럼 at 경기대학교</h6>
     <br>
     <div class="signinup">
-      <!--{% if request.session.user %}
-      <a class="nav-link" href="#">LOGOUT</a>-->
-      <!--{% else %}-->
+      {% if request.session.user %}
+      <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+      {% else %}
       <a class="nav-link active" href="{% url 'login' %}">LOGIN</a>
       <a class="nav-link" href="{% url 'sign_up' %}">SIGN UP</a>
-      <!--{% endif %}-->
+      {% endif %}
     </div>
     <nav class="nav">
       <a class="nav-link active" href="#">HOME</a>
@@ -46,41 +46,13 @@
       <a class="nav-link" href="{% url 'question_read' %}">QUESTION</a>
       <a class="nav-link" href="#">EMAIL</a>
       <!-- <a class="nav-link" href="{% url 'apply_read' %}">APPLY</a>  -->
+      <a class="nav-link" href="{% url 'manager_login' %}">MANAGER LOGIN</a>
     </nav>
   </div>
   {% endblock %}
   {% block content %}
   
-  <form>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-  </form>
+
 
   {% endblock %}
 
