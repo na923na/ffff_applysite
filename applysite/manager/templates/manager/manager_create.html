@@ -1,0 +1,21 @@
+{% extends 'layout/layout.html %'}
+{% block content %}
+<section class = "container">
+    <form action="{% url 'question_create' %}" method="POST">
+        {% csrf_token %}
+      
+        <div class="form-group">
+          <h1>Manager's Answer</h1>
+          <label for="exampleInputEmail1">Title</label> <!--이 부분을 Question제목으로 자동으로 뜰수있게끔 할 예정-->
+          <input type="text" class="form-control" id="TitleInput" name="title" >
+          
+        </div>  
+
+    <div class="form-group">
+      <label for="contentInput">Content</label>
+      <textarea class="form-control" id="contentInput" name="content" rows="15"></textarea>
+    </div>
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
+</section>
+{% endblock %}
