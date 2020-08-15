@@ -16,9 +16,8 @@ Including another URLconf
 from django.urls import path
 from . import views
 
-urlpatterns = [
-    path('layout/', views.layout, name="layout"),
+urlpatterns = [ #runserver 했을 때 바로 뜨는 창을 home으로 설정, layout창 굳이 접속할 필요 없어서 삭제했음요
+    path('', views.home, name="home"),
     path('about/', views.about, name="about"),
-    path('home/', views.home, name="home"),
-
+    path('email/', views.email, name="email"),
 ]

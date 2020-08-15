@@ -88,9 +88,9 @@ def manager_logout(request): #선주
     if request.session.get('is_manager', False):
         request.session.modified= True
         del request.session['is_manager']
-        return redirect("manager_login") #임시
+        return redirect("home") #임시
     else:
-        return redirect("manager_login") #임시
+        return redirect("home") #임시
 
 
 
