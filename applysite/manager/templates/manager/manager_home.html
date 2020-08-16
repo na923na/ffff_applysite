@@ -37,7 +37,8 @@
                 <a class="nav-link" href="#">INFORMATION</a>
                 <a class="nav-link" href="{% url 'question_read' %}">QUESTION</a>
                 <a class="nav-link" href="#">EMAIL</a>
-                <!-- <a class="nav-link" href="{% url 'manager_login' %}">MANAGER LOGIN</a> -->
+               
+                <a class="nav-link" href="{% url 'apply_read' %}">APPLY</a> 
                 {% if request.session.is_manager %}
                 <a class="nav-link" href="{% url 'manager_logout' %}">LOGOUT</a>
                 {% else %}

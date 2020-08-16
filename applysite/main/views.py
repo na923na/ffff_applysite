@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 def layout(request):
@@ -9,3 +9,9 @@ def about(request):
 
 def home(request):
     return render(request, 'home/home.html')
+
+def logout(request):
+    request.session.modified =True
+    del request.session["user"]
+    return redirect ('home')
+
