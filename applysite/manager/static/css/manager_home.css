@@ -1,6 +1,7 @@
 .nav{
     background-color: rgb(26, 25, 25);
     text-align: center;
+
 }
 
 .nav-link {
@@ -60,4 +61,10 @@ body {
 .signinup {
     float: right;
     display: flex;
+}
+
+
+.logout {
+    display: flex;
+    float: right;
 }
