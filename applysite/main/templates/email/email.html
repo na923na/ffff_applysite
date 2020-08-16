@@ -1,0 +1,23 @@
+{% extends 'layout/layout.html' %}
+{% block content %}
+
+<form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email address.">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">title</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Enter title."></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">content</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Enter your question."></textarea>
+      </div>
+    <div class="btn" style="display: inline-block;">  
+      <a href="{% url 'email'%}" class="btn btn-outline-secondary my-2 my-sm-0">Send</a>
+      <a href="{% url 'email'%}" class="btn btn-outline-secondary my-2 my-sm-0">Reset</a>
+     </div> 
+  </form>
+
+{% endblock %}

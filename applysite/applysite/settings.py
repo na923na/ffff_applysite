@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'question.apps.QuestionConfig',
     'main.apps.MainConfig',
     'user.apps.UserConfig',
-    'apply.apps.ApplyConfig',
     'manager.apps.ManagerConfig',
+    'apply.apps.ApplyConfig',
 ]
 
 MIDDLEWARE = [

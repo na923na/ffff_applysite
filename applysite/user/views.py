@@ -34,7 +34,7 @@ def sign_up(request):
             )
         customUser.set_password(pwd)
         customUser.save()
-        return redirect ('login')
+        return redirect('login') 
     else:
         return render(request, 'user/sign_up.html')
 
@@ -49,7 +49,7 @@ def login(request):
             return redirect('home')
         else:
             return render(request, 'user/login.html', {'err' : '비밀번호가 틀렸습니다...'})
-    
+            
     else:
         return render(request, 'user/login.html')
 
@@ -63,29 +63,33 @@ def logout(request):
         
 def manager_login(request): #선주
     if request.method == "POST":
-        email = request.POST['email']
+        nickname =request.POST['nickname']
         pwd = request.POST['password']
-        is_manager = get_object_or_404(CustomUser, email=email)
-        if check_password(pwd, is_manager.password):
+        is_manager = get_object_or_404(CustomUser, username=nickname)
+        if check_password(pwd, is_manager.password) and is_manager.is_staff:
             request.session['is_manager'] = is_manager.username
-            return render(request, 'manager/manager.html')
+            return redirect("manager_home")
+            # return render(request, 'manager/manager_home.html')
         else:
             return render(request, 'user/manager_login.html') #아직 홈 없어서 임시로 로그인 페이지로 넘어가게 해뒀습니당 -선주
             
            
-            if is_manager.is_staff : #is_staff 함수 사용
-                request.session['is_manager'] = True #로그인 된다면
-                return render(request, 'manager/manager.html')
-            else: #로그인 안 될 시
-                return render(request, 'user/login.html')                    
+            # if is_manager.is_staff : #is_staff 함수 사용
+            #     request.session['is_manager'] = True #로그인 된다면
+            #     return render(request, 'manager/manager_home.html')
+            # else: #로그인 안 될 시
+            #     return render(request, 'user/login.html')  
 
+    else:
+        return render(request, 'user/manager_login.html')   #갓 혁상이                  
+    
 def manager_logout(request): #선주 
     if request.session.get('is_manager', False):
         request.session.modified= True
         del request.session['is_manager']
-        return redirect("login") #임시
+        return redirect("home") #임시
     else:
-        return redirect("login") #임시
+        return redirect("home") #임시
 
 
 
