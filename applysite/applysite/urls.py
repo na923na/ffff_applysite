@@ -9,5 +9,5 @@ urlpatterns = [
     path('main/', include('main.urls')),
     path('apply/', include('apply.urls')),
     
-    path('apply/', include('apply.urls')),
+    
 ]
