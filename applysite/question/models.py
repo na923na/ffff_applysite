@@ -6,7 +6,7 @@ class Question(models.Model) :
 
     author = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
     title = models.CharField(max_length=40)
-    question = models.TextField()
+    content = models.TextField()
     question_time = models.DateTimeField(default=timezone.now)
     modified_at = models.DateTimeField(auto_now=True)
 

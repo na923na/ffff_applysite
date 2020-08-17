@@ -18,7 +18,7 @@ def apply_create(request) :
             user = user
             )
         apply.save()
-        return redirect('apply_create')
+        return redirect('apply_read')
     else:
         return render(request, 'apply/create.html')
 
