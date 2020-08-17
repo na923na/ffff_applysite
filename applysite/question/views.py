@@ -28,7 +28,7 @@ def question_delete(request, pk): #선주
 
 def question_read(request): #(최종인)
     questions = Question.objects.all() #question에 있는 객체들을 다 불러온다
-    context = {'question' : questions } # ''안에있는건 내가 정의한거: question's' 인이유는 read에서 모든 게시물들을 보니깐 
+    context = {'questions' : questions } # ''안에있는건 내가 정의한거: question's' 인이유는 read에서 모든 게시물들을 보니깐 
     return render(request, 'question/read.html', context)
 
 def question_read_one(request, pk): #(최종인)
@@ -37,12 +37,12 @@ def question_read_one(request, pk): #(최종인)
     
     
     return render(request, 'question/read_one.html', context) 
-# def question_viewanswer(request, pk): #종인/질문+답변 동시 확인/미완성 
-#     question = get_object_or_404(Question, pk = pk)
-#     manager = get_object_or_404(Manager, pk = pk)
-#     context = {'question' : question, 'manager' : manager}
+def question_viewanswer(request, pk): #종인/질문+답변 동시 확인/미완성 
+     question = get_object_or_404(Question, pk = pk)
+     manager = get_object_or_404(Manager, pk = pk)
+     context = {'question' : question, 'manager' : manager}
 
-#     return render(request, 'question/viewanswer.html', context)
+     return render(request, 'question/viewanswer.html', context)
 
 def question_create(request):
     if request.method == 'POST' and request.session.get('user', False): #로그인해야 기능 이용 가능 

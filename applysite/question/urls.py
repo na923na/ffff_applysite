@@ -24,6 +24,6 @@ urlpatterns = [
     path('read/<int:pk>', views.question_read_one, name="question_read_one"), # question 안에 있는 read_one이라서 question_read_one 이라 함 / int:pk는 개별 게시글에 대한 것이므로 추가함 (최종인)
     path('create/', views.question_create, name="question_create"),
     path('pre_update/<int:pk>', views.pre_update, name='pre_update'),
-    # path('viewanswer/<int:pk>', views.viewanswer, name='viewanswer'),
+    path('viewanswer/<int:pk>', views.question_viewanswer, name='viewanswer'),
 
 ]
