@@ -34,13 +34,14 @@
             <br>
             <nav class="logout">
                 {% if request.session.is_manager %}
-                <a class="nav-link" href="{% url 'manager_logout' %}">LOGOUT</a>
+                <a class="nav-link" href="{% url 'manager_logout' %}"> MANAGER LOGOUT</a>
                 {% endif %}
             </nav>
             <nav class="nav">
                 <a class="nav-link active" href="{% url 'manager_home' %}">HOME</a>
                 <a class="nav-link" href="{% url 'about' %}">INFORMATION</a>
                 <a class="nav-link" href="{% url 'question_read' %}">QUESTION</a>
+                <!-- <a class="nav-link" href="{% url 'manager_read' %}">ANSWER</a> -->
                 <a class="nav-link" href="{% url 'email' %}">EMAIL</a>
                 <a class="nav-link" href="{% url 'apply_read' %}"> APPLY</a>
                 <!-- <a class="nav-link" href="{% url 'manager_login' %}">MANAGER LOGIN</a> -->

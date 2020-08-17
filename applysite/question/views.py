@@ -7,16 +7,18 @@ def question_update(request, pk): #선주가 한 거 ^o^!
     if request.method == 'POST': 
         title = request.POST['title'] 
         question = request.POST['question']
+
         qna = Question.objects.get(pk=pk)
         qna.title = title
         qna.content = content
         qna.save()
-        return redirect('home') 
+        return redirect('question_read') 
 
     else:
         qna = get_object_or_404(Question, pk=pk)
         context = {"qna" : qna}
         return render(request, 'question/update.html', context)
+
 def update(request):
     return render(request, 'question/update/html')
 
@@ -51,8 +53,8 @@ def question_create(request):
         content = request.POST['content']
         
         question = Question(
-            author = author,
             title = title,
+            author = author,
             content = content,            
         )
         question.save()
@@ -63,7 +65,7 @@ def question_create(request):
 
 def pre_update(request, pk):
     question = Question.objects.get(pk=pk)
-    context = {'question':question}
+    context = {'question': question}
     return render(request, "question/update.html", context)
 
 
