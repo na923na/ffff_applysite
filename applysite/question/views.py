@@ -7,10 +7,10 @@ def question_update(request, pk): #선주가 한 거 ^o^!
     if request.method == 'POST': 
         title = request.POST['title'] 
         content = request.POST['content']
-
         qna = Question.objects.get(pk=pk)
         qna.title = title
         qna.content = content
+        
         qna.save()
         return redirect('question_read') 
 
@@ -19,8 +19,8 @@ def question_update(request, pk): #선주가 한 거 ^o^!
         context = {"qna" : qna}
         return render(request, 'question/update.html', context)
 
-def update(request):
-    return render(request, 'question/update/html')
+# def update(request):
+#     return render(request, 'question/update/html')
 
 def question_delete(request, pk): #선주
     qna = Question.objects.get(pk=pk)
@@ -39,12 +39,12 @@ def question_read_one(request, pk): #(최종인)
     
     
     return render(request, 'question/read_one.html', context) 
-# def question_viewanswer(request, pk): #종인/질문+답변 동시 확인/미완성 
-#     question = get_object_or_404(Question, pk = pk)
-#     manager = get_object_or_404(Manager, pk = pk)
-#     context = {'question' : question, 'manager' : manager}
+def question_viewanswer(request, pk): #종인/질문+답변 동시 확인/미완성 
+     question = get_object_or_404(Question, pk = pk)
+     manager = get_object_or_404(Manager, question = question)
+     context = {'question' : question, 'manager' : manager}
 
-#     return render(request, 'question/viewanswer.html', context)
+     return render(request, 'question/viewanswer.html', context)
 
 def question_create(request):
     if request.method == 'POST' and request.session.get('user', False): #로그인해야 기능 이용 가능 

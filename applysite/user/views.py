@@ -46,8 +46,7 @@ def login(request):
         user = get_object_or_404(CustomUser, username = nickname)
         if check_password(pwd, user.password):
             request.session['user'] = user.username
-            return redirect('home')  #임시로 로그인 페이지로 이동 return redirect('home')
-        
+            return redirect('home')
         else:
             return render(request, 'user/login.html', {'err' : '비밀번호가 틀렸습니다...'})
             
@@ -91,10 +90,7 @@ def manager_logout(request): #선주
         return redirect("home") #임시
     else:
         return redirect("home") #임시
-
-
-
-
+ 
 
 '''def manager_login(request): #종인
     if request.method == "POST":
