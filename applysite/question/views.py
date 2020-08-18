@@ -6,7 +6,7 @@ from user.models import CustomUser
 def question_update(request, pk): #선주가 한 거 ^o^! 
     if request.method == 'POST': 
         title = request.POST['title'] 
-        question = request.POST['question']
+        content = request.POST['content']
 
         qna = Question.objects.get(pk=pk)
         qna.title = title

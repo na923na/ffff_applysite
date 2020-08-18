@@ -8,7 +8,7 @@ def manager_read(request):
     return render(request, 'manager/manager_read.html', context)
 
 def manager_read_one(request, pk):
-    manager = get_object_or_404(Manager, pk=pk) #첫번째 pk는 board안에있는 pk, 두번째 pk는 11번째 줄 pk에 대응
+    manager = get_object_or_404(Manager, pk=pk)
     context = {'manager': manager}
     return render(request, 'manager/manager_read_one.html', context)
 

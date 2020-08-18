@@ -90,10 +90,7 @@ def manager_logout(request): #선주
         return redirect("home") #임시
     else:
         return redirect("home") #임시
-
-
-
-
+ 
 
 '''def manager_login(request): #종인
     if request.method == "POST":
