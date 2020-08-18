@@ -6,7 +6,7 @@ from user.models import CustomUser
 def manager_read(request):
     managers = Manager.objects.all()
     context = {'managers': managers}
-    return render(request, 'manager/manager_read.html', context)
+    return render(request, 'question/read.html', context)
 
 def manager_read_one(request, pk):
     manager = get_object_or_404(Manager, pk=pk) #첫번째 pk는 board안에있는 pk, 두번째 pk는 11번째 줄 pk에 대응

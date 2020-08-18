@@ -1,37 +1,35 @@
 {% extends 'layout/layout.html' %}
 {% block content %}
 <section class='container'>
-    <br>
-    <div class="board">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Answer</th>
-                    <th scope="col">answer_time</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for manager in managers %}
-                <tr>
-                    <th scope="row">{{manager.pk}}</th>
-                    <td>{{manager.author.username}}</td>
-                    <td><a href="{% url 'manager_read_one' board.pk %}" class="title">{{manager.title}}</a></td>
 
-                    <td>{{manager.answer_time}}</td>
-                </tr>
-                {% endfor%}
-            </tbody>
-        </table>
-
-    </div>
-
-    <div class="bar2" style="margin:6px ;">
+  <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">NO.</th>
+            <th scope="col">Author</th>
+            <th scope="col">Title</th>
+            <th scope="col">Answer</th>
+            <th scope="col">Question_time</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %} 
+            
+          <tr>
+            <th scope="row">{{question.pk}}</th>
+            <td><a href="{% url 'question_read_one' question.pk %}" class="author">{{question.author}}</a></td>
+            <td>{{question.title}}</td> 
+            <td>{{question.answer}}</td>  
+            <td>{{question.question_time}}</td>
+            <td><a href="{% url 'question_update' question.pk %}" class="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a href="{% url 'question_delete' question.pk %}" class ="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td>
+        
+          </tr>
+          {% endfor %}      
+        </tbody>
+      </table>
+      <div class ="bar2" style="margin:6px ;">
         <a href="{% url 'question_create'%}" class="btn btn-outline-secondary my-2 my-sm-0">Create</a>
-    </div>
-
-
-
+      </div>
+</section>
 {% endblock %}

@@ -18,8 +18,9 @@
             <!-- <a href="{% url 'pre_update' question.pk %}" class="card-link">수정하기</a>
             <a href="{% url 'question_delete' question.pk %}" class="card-link">삭제하기</a> -->
             <a href="#" class="card-link">답글달기(manager용)</a>
-            {% else %}
-            <a href="{% url 'pre_update' question.pk %}" class="card-link">수정하기</a>
+            {% endif %}
+            {% if request.session.user == question.author.username %}
+            <a href="{% url 'question_update' question.pk %}" class="card-link">수정하기</a>
             <a href="{% url 'question_delete' question.pk %}" class="card-link">삭제하기</a>
             <a href="#" class="card-link">답변 확인하기</a>
             {% endif %}
