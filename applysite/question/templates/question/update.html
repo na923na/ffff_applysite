@@ -2,7 +2,7 @@
 {% block content %}
 <section class="container">
     
-<form action="{% url 'question_update' board.pk %}" method="POST"> <!--선주-->
+<form action="{% url 'question_update' question.pk %}" method="POST"> <!--선주-->
     {% csrf_token %}
     <div class="form-group">
         <label for="titleInput">Title</label>
@@ -10,7 +10,7 @@
         </div>
     <div class="form-group">
         <label for="contentInput">Question</label>
-        <textarea class="form-control" id="contentInput" name='question' rows="5">{{qna.question}}</textarea><!--선주-->
+        <textarea class="form-control" id="contentInput" name='question' rows="5">{{qna.content}}</textarea><!--선주-->
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Manager
+from question.models import Question
+from manager.models import Manager
 from user.models import CustomUser
 # Create your views here.
 
@@ -15,12 +16,13 @@ def manager_read_one(request, pk):
 
 def manager_create(request):
     if request.method == 'POST' and request.session.get('is_manager', False): #로그인해야 기능 이용 가능 
-        title = request.POST['title']
+        question = request.POST['question']
+        question_value = Question.objects.get(pk = question)
         author = get_object_or_404(CustomUser, username = request.session['is_manager'])
         content = request.POST['content']
         manager = Manager(
             author = author,
-            title = title,
+            question = question_value,
             content = content,            
         )
 
@@ -28,18 +30,19 @@ def manager_create(request):
 
         return redirect('manager_read')
     else:
-        return render(request, 'manager/manager_create.html')    
+        question_pk = request.GET['question']
+        return render(request, 'manager/manager_create.html', {'question' : question_pk})    
 
 
 def manager_update(request, pk): 
-    title = request.POST['title']
+    #title = request.POST['title']
     author = request.POST['author']
     Cuser = CustomUser.objects.get(username=author) #커스텀유저 안에서 author라는 이름을 가진 객체를 가져오는것 
     content = request.POST['content']
     manager = Manager.objects.get(pk=pk)
     manager.title = title
     manager.author = Cuser
-    manager.content = content
+    manager.content= content
     manager.save() 
 
     return redirect('manager_read')

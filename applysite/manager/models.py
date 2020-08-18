@@ -8,11 +8,12 @@ from question.models import Question
 
 class Manager(models.Model) :
     author = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+    #title = models.CharField(max_length=40)
     question = models.ForeignKey(Question, on_delete = models.CASCADE) #각 질문에 맞는 답을 해야하기 때문에 추가함 (최종인)
-    answer  = models.TextField()
+    content  = models.TextField()
     answer_time = models.DateTimeField(default=timezone.now)
 
     
     def __str__(self) :
-        return self.answer
+        return self.content
 

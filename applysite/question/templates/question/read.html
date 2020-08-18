@@ -21,7 +21,7 @@
             <td><a href="{% url 'question_read_one' question.pk %}" class="author">{{question.title}}</a></td> 
             <td>{{question.answer}}</td>  
             <td>{{question.question_time}}</td>
-            <td><a href="{% url 'question_update' question.pk %}" class="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a href="{% url 'question_delete' question.pk %}" class ="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td>
+            <!-- <td><a href="{% url 'question_update' question.pk %}" class="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a href="{% url 'question_delete' question.pk %}" class ="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td> -->
           </tr>
           {% endfor %}      
         </tbody>

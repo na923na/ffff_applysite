@@ -18,19 +18,19 @@
                 <tr>
                     <th scope="row">{{manager.pk}}</th>
                     <td>{{manager.author.username}}</td>
-                    <td><a href="{% url 'manager_read_one' board.pk %}" class="title">{{manager.title}}</a></td>
+                    <td><a href="{% url 'manager_read_one' manager.pk %}" class="title">{{manager.question}}</a></td>
 
                     <td>{{manager.answer_time}}</td>
                 </tr>
-                {% endfor%}
+                {% endfor %}
             </tbody>
         </table>
 
     </div>
 
-    <div class="bar2" style="margin:6px ;">
+    <!-- <div class="bar2" style="margin:6px ;">
         <a href="{% url 'question_create'%}" class="btn btn-outline-secondary my-2 my-sm-0">Create</a>
-    </div>
+    </div> -->
 
 
 
