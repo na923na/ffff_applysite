@@ -34,18 +34,25 @@ def manager_create(request):
 
 
 def manager_update(request, pk): 
-    #title = request.POST['title']
-    author = request.POST['author']
-    Cuser = CustomUser.objects.get(username=author) #커스텀유저 안에서 author라는 이름을 가진 객체를 가져오는것 
-    content = request.POST['content']
-    manager = Manager.objects.get(pk=pk)
-    manager.title = title
-    manager.author = Cuser
-    manager.content= content
-    manager.save() 
 
-    return redirect('manager_read')
+    if  request.method == 'POST':
+        #question = request.POST['question']
+        # author = request.POST['author']
+        # Cuser = CustomUser.objects.get(username=author) #커스텀유저 안에서 author라는 이름을 가진 객체를 가져오는것 
+        content = request.POST['content']
+        manager = Manager.objects.get(pk=pk)
+        #manager.question = question
+        #manager.author = Cuser
+        manager.content= content
+        manager.save() 
 
+        return redirect('manager_read')
+    
+    else:
+        manager = get_object_or_404(Manager, pk=pk)
+        context = {"manager":manager}
+
+        return render(request, 'manager/manager_update.html', context)
 def manager_pre_update(request, pk):
     manager = Manager.objects.get(pk=pk)
     context = {'manager':manager}
