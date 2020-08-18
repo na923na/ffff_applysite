@@ -2,7 +2,7 @@
 {% block content %}
 <section class="container">
     
-<form action="{% url 'question_update' question.pk %}" method="POST"> <!--선주-->
+<form action="{% url 'question_update' qna.pk %}" method="POST"> <!--선주-->
     {% csrf_token %}
     <div class="form-group">
         <label for="titleInput">Title</label>

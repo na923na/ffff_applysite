@@ -15,13 +15,16 @@
         </thead>
         <tbody>
             {% for question in questions %} 
+            {% if request.session.user == question.author.username or request.session.is_manager %}
+            
           <tr>
             <th scope="row">{{question.pk}}</th>
             <td>{{question.author}}</td>
             <td><a href="{% url 'question_read_one' question.pk %}" class="author">{{question.title}}</a></td> 
             <td>{{question.answer}}</td>  
             <td>{{question.question_time}}</td>
-            <!-- <td><a href="{% url 'question_update' question.pk %}" class="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a href="{% url 'question_delete' question.pk %}" class ="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td> -->
+            <td><a href="{% url 'question_update' question.pk %}" class="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a href="{% url 'question_delete' question.pk %}" class ="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td>
+            {% endif %}
           </tr>
           {% endfor %}      
         </tbody>

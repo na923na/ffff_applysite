@@ -35,29 +35,29 @@
       <div class="signinup">
         {% if request.session.user %}
         <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+        <a class="nav-link" href="{% url 'user_read' %}">APPLY</a>
         {% else %}
-        {% if request.session.is_manager %}
-        <a class="nav-link" href="{% url 'manager_logout' %}">MANAGER LOGOUT</a>
-        {% else %}
-        <a class="nav-link active" href="{% url 'login' %}">LOGIN</a>
-        <a class="nav-link" href="{% url 'sign_up' %}">SIGN UP</a>
-        {% endif %}
+          {% if request.session.is_manager %}
+          <a class="nav-link" href="{% url 'manager_logout' %}">MANAGER LOGOUT</a>
+          {% else %}
+          <a class="nav-link active" href="{% url 'login' %}">LOGIN</a>
+          <a class="nav-link" href="{% url 'sign_up' %}">SIGN UP</a>
+          {% endif %}
         {% endif %}
       </div>
       <nav class="nav">
         {% if request.session.is_manager %}
         <a class="nav-link active" href="{% url 'manager_home' %}">HOME</a>
+        <a class="nav-link" href="{% url 'apply_read' %}"> APPLY LIST</a>
         {% else %}
         <a class="nav-link active" href="{% url 'home' %}">HOME</a>
         {% endif %}
         <a class="nav-link" href="{% url 'about' %}">INFORMATION</a>
         <a class="nav-link" href="{% url 'question_read' %}">QUESTION</a>
         <a class="nav-link" href="{% url 'email' %}">EMAIL</a>
-        <a class="nav-link" href="{% url 'apply_read' %}">APPLY</a>
-        <!-- {% if request.session.user %}
-        {% else %}
-        <a class="nav-link" href="{% url 'manager_login' %}">MANAGER LOGIN</a>
-        {% endif %}-->
+
+        
+
         {% if request.session.is_manager %}
         {% else %}
         {% if request.session.user %}

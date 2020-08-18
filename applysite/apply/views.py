@@ -34,10 +34,6 @@ def apply_read(request) :
     # else:
     #    return redirect(apply_create)
 
-def apply_read_one(request, pk) :
-    apply = get_object_or_404(ApplyInformation, pk = pk)
-    context = { 'apply': apply }
-    return render(request, 'apply/read_one.html',context)
 
 def apply_update(request,pk):
     if  request.method == 'POST':
@@ -53,7 +49,7 @@ def apply_update(request,pk):
         apply.solution = solution
         apply.gain = gain
         apply.save()
-        return redirect('apply_read')
+        return redirect('home')
     else:
         apply = get_object_or_404(ApplyInformation, pk = pk)
         context = {"apply" : apply}
@@ -63,3 +59,19 @@ def apply_delete(request,pk):
     apply = ApplyInformation.objects.get(pk=pk)
     apply.delete()
     return redirect('apply_read')
+
+def apply_read_one(request, pk) :
+    apply = get_object_or_404(ApplyInformation, pk = pk)
+    context = { 'apply': apply }
+    return render(request, 'apply/read_one.html',context)
+
+def user_read(request) :
+    if request.session.get('user', False):
+        user = get_object_or_404(CustomUser, username = request.session['user'])
+        try :
+            apply = get_object_or_404(ApplyInformation, user = user)
+            return redirect('apply_update', apply.pk)
+        except :
+            return redirect('apply_create')
+    else:
+        return render(request, 'home/home.html', {'err' : '글을 읽을 권한이 없습니다.'})

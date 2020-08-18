@@ -7,9 +7,6 @@ def question_update(request, pk): #선주가 한 거 ^o^!
     if request.method == 'POST': 
         title = request.POST['title'] 
         content = request.POST['content']
-        # author = request.POST['author']
-        # Cuser = CustomUser.objects.get(username=author)
-        # qna.author = Cuser
         qna = Question.objects.get(pk=pk)
         qna.title = title
         qna.content = content
