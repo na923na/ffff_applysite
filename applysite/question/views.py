@@ -7,16 +7,18 @@ def question_update(request, pk): #선주가 한 거 ^o^!
     if request.method == 'POST': 
         title = request.POST['title'] 
         question = request.POST['question']
+
         qna = Question.objects.get(pk=pk)
         qna.title = title
         qna.content = content
         qna.save()
-        return redirect('home') 
+        return redirect('question_read') 
 
     else:
         qna = get_object_or_404(Question, pk=pk)
         context = {"qna" : qna}
         return render(request, 'question/update.html', context)
+
 def update(request):
     return render(request, 'question/update/html')
 
@@ -28,7 +30,7 @@ def question_delete(request, pk): #선주
 
 def question_read(request): #(최종인)
     questions = Question.objects.all() #question에 있는 객체들을 다 불러온다
-    context = {'question' : questions } # ''안에있는건 내가 정의한거: question's' 인이유는 read에서 모든 게시물들을 보니깐 
+    context = {'questions' : questions } # ''안에있는건 내가 정의한거: question's' 인이유는 read에서 모든 게시물들을 보니깐 
     return render(request, 'question/read.html', context)
 
 def question_read_one(request, pk): #(최종인)
@@ -51,8 +53,8 @@ def question_create(request):
         content = request.POST['content']
         
         question = Question(
-            author = author,
             title = title,
+            author = author,
             content = content,            
         )
         question.save()
@@ -63,7 +65,7 @@ def question_create(request):
 
 def pre_update(request, pk):
     question = Question.objects.get(pk=pk)
-    context = {'question':question}
+    context = {'question': question}
     return render(request, "question/update.html", context)
 
 
