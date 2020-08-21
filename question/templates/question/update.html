@@ -1,0 +1,18 @@
+{% extends 'layout/layout.html' %}
+{% block content %}
+<section class="container">
+    
+<form action="{% url 'question_update' qna.pk %}" method="POST"> <!--선주-->
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="titleInput">Title</label>
+        <input type="text" class="form-control" id="titleInput" value="{{qna.title}}" name="title"> <!--선주-->
+        </div>
+    <div class="form-group">
+        <label for="contentInput">Question</label>
+        <textarea class="form-control" id="contentInput" name='question' rows="5">{{qna.content}}</textarea><!--선주-->
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</section>
+{% endblock %}

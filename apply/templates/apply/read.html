@@ -1,0 +1,36 @@
+{% extends 'layout/layout.html' %}
+{% block content %}
+<section class='container'>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">NO.</th>
+        <th scope="col">username</th>
+        <th scope="col">major</th>
+        <th scope="col">class_code</th>
+        <th scope="col">Create Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for apply in applys %}
+      <!--혁상이가 applys라고 한다고 했음 ! -->
+        {% if request.session.user == question.author.username or request.session.is_manager %}
+        <tr>
+          <th scope="row">{{apply.pk}}</th>
+          <td><a href="{% url 'apply_read_one' apply.pk %}" class="username">{{apply.user.username}}</a></td>
+          <td>{{apply.user.major}}</td>
+          <td>{{apply.user.class_code}}</td>
+          <td>{{apply.create_at}}</td>
+          <td><a href="{% url 'apply_update' apply.pk %}" class="btn btn-outline-success my-2 my-sm-0">수정하기</a> <a
+              href="{% url 'apply_delete' apply.pk %}" class="btn btn-outline-success my-2 my-sm-0">삭제하기</a> </td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="bar2" style="margin:6px ;">
+    <a href="{% url 'apply_create'%}" class="btn btn-outline-secondary my-2 my-sm-0">Create</a>
+  </div>
+</section>
+{% endblock %}
