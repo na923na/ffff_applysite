@@ -1,0 +1,37 @@
+{% extends 'layout/layout.html' %}
+{% block content %}
+<section class='container'>
+    <br>
+    <div class="board">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Answer</th>
+                    <th scope="col">answer_time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for manager in managers %}
+                <tr>
+                    <th scope="row">{{manager.pk}}</th>
+                    <td>{{manager.author.username}}</td>
+                    <td><a href="{% url 'manager_read_one' manager.pk %}" class="title">{{manager.question}}</a></td>
+
+                    <td>{{manager.answer_time}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- <div class="bar2" style="margin:6px ;">
+        <a href="{% url 'question_create'%}" class="btn btn-outline-secondary my-2 my-sm-0">Create</a>
+    </div> -->
+
+
+
+{% endblock %}

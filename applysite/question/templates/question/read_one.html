@@ -1,0 +1,32 @@
+{% extends 'layout/layout.html' %}
+{% block content %}
+<section class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>{{question.title}}</h1>
+            <h6>{{question.author.username}}</h6>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+
+            <p class="card-text">{{question.content}}</p>
+            <!-- <a href="{% url 'pre_update' question.pk %}" class="card-link">수정하기</a>
+            <a href="{% url 'question_delete' question.pk %}" class="card-link">삭제하기</a> -->
+
+            {% if request.session.is_manager %}
+            <!-- <a href="{% url 'pre_update' question.pk %}" class="card-link">수정하기</a>
+            <a href="{% url 'question_delete' question.pk %}" class="card-link">삭제하기</a> -->
+            <form action="{% url 'manager_create' %}" method="GET">
+                <input type="hidden" name="question" value="{{question.pk}}">
+                <button type="submit" class="btn btn-primary">답글달기(manager용)</button>
+            </form>
+            {% else %}
+            <a href="{% url 'pre_update' question.pk %}" class="card-link">수정하기</a>
+            <a href="{% url 'question_delete' question.pk %}" class="card-link">삭제하기</a>
+            <a href="{% url 'question_viewanswer' question.pk %}" class="card-link">답변 확인하기</a>
+            {% endif %}
+
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'layout/layout.html' %}
+{% block content %}
+    <section class='container'>
+        <div class='card'></div>
+        <div class="card-body">
+            <h1>{{apply.user.username}}</h1>
+            <h3>{{apply.user.major}}</h3>
+            <h3>{{apply.user.class_code}}</h3>
+
+            <div class="card" style="width: 60rem;">
+                <!--길이감에 대한 정도 몰라서 임시 설정-->
+                <div class="card-body">
+                    <p class="card-text">1.지원동기(500자) </p>
+                    <p> {{apply.reason}}</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 60rem;">
+                <div class="card-body">
+
+                    <p class="card-text">2.만들고 싶은 웹사이트 (300자)</p>
+                    <p> {{apply.makeweb}}</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 60rem;">
+                <div class="card-body">
+
+                    <p class="card-text">3.동아리/단체 활동경험 유무 및 단체 내 갈등 해결 방법 (300자) </p>
+                    <p>{{apply.solution}}</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 60rem;">
+                <div class="card-body">
+
+                    <p class="card-text">4.멋사에서 얻어가고 싶은 것 (100자) </p>
+                    <p>{{apply.gain}}</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}

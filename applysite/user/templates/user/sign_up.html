@@ -1,0 +1,47 @@
+{% extends 'layout/layout.html' %}
+{% block content %}
+    <section class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nickname">ID</label>
+                <input name="nickname" type="text" class="form-control" id="nickname">
+            </div>
+        {% if err1 %}
+            <small class="form-text text-muted">{{err1}}</small>
+        {% endif %}
+            <div class="form-group">
+                <label for="first_name">First name</label>
+                <input name="first_name" type="text" class="form-control" id="fisrt_name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last name</label>
+                <input name="last_name" type="text" class="form-control" id="last_name">
+            </div>
+            <div class="form-group">
+                <label for="class_code">class code</label>
+                <input name="class_code" type="text" class="form-control" id="class_code">
+            </div>
+            <div class="form-group">
+                <label for="major">major</label>
+                <input name="major" type="text" class="form-control" id="major">
+            </div>
+            <div class="form-group">
+                <label for="phone_number">phone number</label>
+                <input name="phone_number" type="text" class="form-control" id="phone_number">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+                <label for="checkPassword">Confirm Password</label>
+                <input name="check_password" type="password" class="form-control" id="checkPassword" aria-describedby="emailHelp">
+            </div>
+            {% if err2 %}
+                <small class="form-text text-muted">{{err2}}</small>
+            {% endif %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+{% endblock %}
